@@ -1,0 +1,59 @@
+<div class="search-area">
+  <div
+    class="
+      row
+      height
+      d-flex
+      justify-content-center
+      align-items-center
+      search-holder
+    "
+  >
+    <div class="form">
+      <i class="fa fa-search"></i>
+      <input
+        type="text"
+        class="form-control form-input"
+        placeholder="Search anything..."
+        [(ngModel)]="searchQuery"
+      />
+
+      <!-- <span class="left-pan"><i class="fa fa-microphone"></i></span> -->
+    </div>
+  </div>
+
+  <div class="container-fluid row cards-holder">
+    <h1 class="text-center content-title">Restaurants</h1>
+    <div class="container-fluid restaurants-list">
+      <div
+        class="card col-lg-2 col-md-3 col-xs-4"
+        *ngFor="let restaurant of restaurants | restaurantFilter: searchQuery"
+      >
+        <img [src]="restaurant.imageUrl" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{ restaurant.restaurant | titlecase }}</h5>
+          <p class="card-text">Dish: {{ restaurant.dishName }}</p>
+          <p class="card-text">{{ restaurant.description }}</p>
+
+          <div class="floatAtEnds">
+            <p>{{ restaurant.cost | currency: "INR" }}</p>
+            <p style="font-weight: bold;">
+              {{
+                restaurant.quantity !== 0 ? "Added:" + restaurant.quantity : ""
+              }}
+            </p>
+
+            <p>{{ restaurant.rating | number: "1.1-2" }}</p>
+          </div>
+
+          <div class="floatAtEnds">
+            <a class="btn btn-primary" (click)="onAddToCart(restaurant.id)"
+              >Add to Cart
+            </a>
+            <a class="btn btn-success">Buy Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

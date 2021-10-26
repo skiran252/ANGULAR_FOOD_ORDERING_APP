@@ -1,0 +1,16 @@
+.main-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.critics-holder {
+    padding: 60px;
+}
+.card {
+    margin-bottom: 20px;
+}
+
+img {
+    width: 10vw;
+}

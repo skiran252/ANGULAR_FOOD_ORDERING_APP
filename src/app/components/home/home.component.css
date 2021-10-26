@@ -1,0 +1,81 @@
+.search-area {
+  background-size: cover;
+}
+.search-holder {
+  background-image: url("https://www.ning.com/wp-content/uploads/2019/05/create-food-website.jpg");
+
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-fluid {
+}
+
+.form {
+  position: relative;
+  width: 50%;
+}
+
+.form .fa-search {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: lightgray;
+}
+
+.form span {
+  position: absolute;
+  right: 17px;
+  top: 13px;
+  padding: 2px;
+  border-left: 1px solid #d1d5db;
+}
+
+.left-pan {
+  padding-left: 7px;
+}
+
+.left-pan i {
+  padding-left: 10px;
+}
+
+.form-input {
+  height: 55px;
+  text-indent: 33px;
+  border-radius: 10px;
+}
+
+.form-input:focus {
+  box-shadow: none;
+  border: none;
+}
+.floatAtEnds {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.restaurants-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.cards-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card {
+  margin: 20px;
+}
+
+.content-title {
+  font-family: "Zen Kurenaido", sans-serif;
+  font-weight: bolder;
+}

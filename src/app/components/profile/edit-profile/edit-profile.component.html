@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card" *ngIf="user">
+        <div class="card-header"><b>EDIT PROFILE</b></div>
+        <div class="card-body">
+          <form >
+            <p>Logged In User, {{ user.email }}</p>
+
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"
+                placeholder="Name"
+                value="{{ user.name }}"
+              />
+            </div>
+            <!-- password field -->
+            <div class="form-group">
+              <label for="password">New Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                placeholder="Password"
+                [(ngModel)]="user.password"
+              />
+            </div>
+            <!-- phone no field -->
+
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input
+                type="text"
+                class="form-control"
+                id="phoneno"
+                name="phoneno"
+                placeholder="Phone Number"
+                [(ngModel)]="user.phoneno"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

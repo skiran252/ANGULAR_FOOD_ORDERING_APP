@@ -1,0 +1,45 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-center row">
+    <div class="col-md-10">
+      <div class="rounded">
+        <div class="table-responsive table-borderless">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Order #</th>
+                <th>Order Items</th>
+                <th>status</th>
+                <th>Total</th>
+                <th>Created</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody class="table-body">
+              <tr class="cell-1" *ngFor="let order of orders">
+                <td>{{ order.orderId }}</td>
+                <td>
+                  <ul>
+                    <li *ngFor="let item of order.orderItems">
+                      {{ item.dishName }}
+                    </li>
+                  </ul>
+                </td>
+                <td>
+                  {{
+                      calculateTimeDifference(currentTime, order.orderDate)<3?
+                      "placed": calculateTimeDifference(currentTime, order.orderDate)<5?"pending":"delivered/success"
+                 }}
+                </td>
+                <td>{{ order.orderTotal }}</td>
+                <td>
+                  {{ order.orderDate | date }} &nbsp;
+                  {{ order.orderDate | date: "shortTime" }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

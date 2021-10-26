@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div>
+        <h1>CRITICS</h1>
+
+        <!-- search for critics -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search for..."
+                name="criticQuery"
+                [(ngModel)]="criticQuery"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="critics-holder">
+          <div class="card main-flex" *ngFor="let critic of critics|criticFilter:criticQuery">
+            <img
+              class="card-img-top"
+              [src]="critic.image"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ critic.name }}</h5>
+              <p class="card-text">
+                {{ critic.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

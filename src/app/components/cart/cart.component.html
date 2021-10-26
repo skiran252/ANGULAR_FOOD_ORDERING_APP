@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Cart</h1>
+      <div class="card">
+        <div class="card-top border-bottom text-center">
+          <a routerLink="/home"> Back to Order Food</a>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="right border">
+                <div class="header">Order Summary</div>
+                <p>{{ totalItems }} items</p>
+                <div class="row item" *ngFor="let order of orders">
+                  <div *ngIf="order.quantity > 0" class="order-row">
+                    <div class="col-4 align-self-center">
+                      <img class="img-fluid" [src]="order.imageUrl" />
+                    </div>
+                    <div class="col-8">
+                      <div class="row">
+                        <b>{{
+                          order.quantity * order.cost | currency: "INR"
+                        }}</b>
+                      </div>
+                      <div class="row text-muted">
+                        {{ order.description }}
+                      </div>
+                      <div class="row">Qty:{{ order.quantity }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="row lower">
+            <div class="col text-left">Subtotal</div>
+            <div class="col text-right">
+              {{ this.finalCost | currency: "INR" }}
+            </div>
+          </div>
+          <div class="row lower">
+            <div class="col text-left">Delivery</div>
+            <div class="col text-right">Free</div>
+          </div>
+          <div class="row lower">
+            <div class="col text-left"><b>Total to pay</b></div>
+            <div class="col text-right">
+              <b>{{ this.finalCost | currency: "INR" }}</b>
+            </div>
+          </div>
+          <button class="btn" style="width: 25%;" (click)="proceedToOrders(orders)">Place order</button>
+          <p class="text-muted text-center">Complimentary Shipping & Returns</p>
+        </div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>
