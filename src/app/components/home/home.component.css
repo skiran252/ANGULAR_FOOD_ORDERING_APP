@@ -79,3 +79,9 @@
   font-family: "Zen Kurenaido", sans-serif;
   font-weight: bolder;
 }
+
+.floatAtEnds {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

@@ -9,21 +9,25 @@
       search-holder
     "
   >
+
     <div class="form">
       <i class="fa fa-search"></i>
       <input
         type="text"
         class="form-control form-input"
-        placeholder="Search restaurant..."
+        placeholder="Search restaurant... results will appear as you search"
         [(ngModel)]="searchQuery"
       />
 
+
       <!-- <span class="left-pan"><i class="fa fa-microphone"></i></span> -->
     </div>
+    <h2 class="text-center text-white">Order food from Restaurants near you</h2>
+
   </div>
 
-  <div class="container-fluid row cards-holder">
-    <h1 class="text-center content-title">
+  <div class="container-fluid row cards-holder ">
+    <h1 class="content-title">
       Restaurants
       <span
         ><a
