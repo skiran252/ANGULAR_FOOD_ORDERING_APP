@@ -30,7 +30,7 @@
                       "placed": calculateTimeDifference(currentTime, order.orderDate)<5?"pending":"delivered/success"
                  }}
                 </td>
-                <td>{{ order.orderTotal }}</td>
+                <td>{{ order.orderTotal | currency:"INR" }}</td>
                 <td>
                   {{ order.orderDate | date }} &nbsp;
                   {{ order.orderDate | date: "shortTime" }}

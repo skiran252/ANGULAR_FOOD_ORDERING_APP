@@ -28,6 +28,14 @@ export class AuthService {
   ];
 
   constructor() {
+    //check if user is logged in from local storage
+    let user = localStorage.getItem('currentUser');
+    if (user) {
+      this.currentUser = JSON.parse(user);
+      this.isLoggedIn = true;
+      this.loginStatusChange.next(true);
+    }
+
     // check if this array exists in localstorage then replace the array with the one in localstorage else set the array to the one in localstorage
     if (localStorage.getItem('validUsers')) {
       this.validUsers = JSON.parse(localStorage.getItem('validUsers') || '{}');
@@ -45,6 +53,8 @@ export class AuthService {
       if (user.email === email) {
         if (user.password === password) {
           this.currentUser = user;
+          //also set to local stoarge
+          localStorage.setItem('currentUser', JSON.stringify(user));
           this.isLoggedIn = true;
           this.loginStatusChange.next(true);
           return 'SUCCESS';
@@ -77,7 +87,6 @@ export class AuthService {
     });
     localStorage.setItem('validUsers', JSON.stringify(this.validUsers));
     return true;
-
   }
 
   // function to deauthenticate user and set isLoggedIn to false
@@ -86,11 +95,22 @@ export class AuthService {
     this.loginStatusChange.next(false);
     this.isLoggedIn = false;
     this.currentUser = null;
+    //unset in local storage
+    localStorage.removeItem('currentUser');
   }
 
   // function to check if user is logged in
 
   public isUserLoggedIn(): boolean {
+    //check in locla storage if user is logged in to avoid  logging out when refreshed
+    let user = localStorage.getItem('currentUser');
+    if (user) {
+      this.currentUser = JSON.parse(user);
+      this.isLoggedIn = true;
+      this.loginStatusChange.next(true);
+      return true;
+    }
+
     return this.isLoggedIn;
   }
 
