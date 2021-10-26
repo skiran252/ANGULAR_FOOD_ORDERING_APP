@@ -2,7 +2,13 @@
   <div class="row">
     <div class="col-xs-12">
       <h1>Cart</h1>
-      <div class="card">
+      <ng-template #showNoItems>
+        <h4>You dont have any items in your cart! add them and visit here</h4>
+        <div class="card-top border-bottom text-center">
+          <a routerLink="/home"> Back to Order Food</a>
+        </div>
+      </ng-template>
+      <div class="card" *ngIf="totalItems>0;else showNoItems">
         <div class="card-top border-bottom text-center">
           <a routerLink="/home"> Back to Order Food</a>
         </div>

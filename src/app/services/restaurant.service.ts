@@ -158,5 +158,11 @@ export class RestaurantService {
     );
     this.restaurants[index].quantity += 1;
   }
+  //clear cart  
+  public clearCart(): any {
+    this.restaurants.forEach((restaurant: any) => {
+      restaurant.quantity = 0;
+    });
+  }
 
 }

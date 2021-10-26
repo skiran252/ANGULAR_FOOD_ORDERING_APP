@@ -46,7 +46,7 @@ export class CartComponent implements OnInit {
       orderItems
     );
     console.log(this.orderService.getOrders());
-    // this.restaurantService.clearCart();
+    this.restaurantService.clearCart();
     this.router.navigate(['/orders']);
   }
 }
