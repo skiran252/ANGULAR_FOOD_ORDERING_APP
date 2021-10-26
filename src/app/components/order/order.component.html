@@ -26,11 +26,18 @@
                 </td>
                 <td>
                   {{
-                      calculateTimeDifference(currentTime, order.orderDate)<3?
-                      "placed": calculateTimeDifference(currentTime, order.orderDate)<5?"pending":"delivered/success"
-                 }}
+                    order.status === "delivered/success"
+                      ? "delivered/success"
+                      : calculateTimeDifference(currentTime, order.orderDate) <
+                        3
+                      ? "placed"
+                      : calculateTimeDifference(currentTime, order.orderDate) <
+                        5
+                      ? "pending"
+                      : "delivered/success"
+                  }}
                 </td>
-                <td>{{ order.orderTotal | currency:"INR" }}</td>
+                <td>{{ order.orderTotal | currency: "INR" }}</td>
                 <td>
                   {{ order.orderDate | date }} &nbsp;
                   {{ order.orderDate | date: "shortTime" }}
